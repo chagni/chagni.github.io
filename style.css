@@ -198,9 +198,9 @@ nav .fa{
 
 .slideshow-container { 
     position: relative; /* "relative", so that h1 and images can be set absolutely */
-	height: 80vh; /* Adjust the height to your needs here */
-	width: 100%; /* Adjust the width to your needs here */
+	width: auto; /* Adjust the width to your needs here */
 	margin-top:1%;
+	margin: auto;
 	overflow: hidden;
 	border-radius: .125rem;
 	box-shadow: 0 0 .1rem .125rem rgba(0, 0, 0, 0.25);
@@ -277,6 +277,16 @@ nav .fa{
   text-align: left;
   text-shadow: 1px 1px 0px #474545;
 }
+
+@media(max-width: 700px){
+    .tohide{
+        display: none;
+    }
+    .ries{
+    	font-size: 20px;
+    }    
+}
+
 .btns {
 	margin: left;
 	padding: .5rem;
