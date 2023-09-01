@@ -81,29 +81,38 @@ nav{
     align-items: center;
 }
 nav img{
+    margin-left: 1%;
+    margin-top: 5%;
     width: 280px;
+    height: 47px;
+    
 }
 .nav-links{
     flex: 1;
-    text-align: right;
-    background-color: #e0842e;
+    text-align: center;
+    background-color: transparent;
 }
 .nav-links ul li{
     list-style: none;
     display: inline-block;
-    padding: 8px 12px;
+    padding: 10px 12px;
     position: relative;
-    border-radius: 10px;
+	border-radius: 10px;
+    line-height: 20px;
+	margin-top: 12px;
 }
 .nav-links ul li a{
-    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #16163f;
     text-decoration: none;
-    font-size: 13px;
+    font-size: 15px;
+    line-height: 20px;
+    text-decoration: none;
 }
 .nav-links ul li::after{
     content: '';
     width: 0%;
-    height: 2px;
+    height: 3px;
     background: rgb(0, 75, 140);
     display: block;
     margin: auto;
@@ -112,7 +121,6 @@ nav img{
 .nav-links ul li:hover::after{
     width:100%;
 }
-
 /*--------------nav-menu-end------------*/
 .service-header{
     width: 25%;

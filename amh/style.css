@@ -65,36 +65,49 @@ span{
 /*----------header main---------*/
 nav{
     display: flex;
-    padding: 2%, 6%;
-    height: 50px;
-    background-color: #ffffff;
+    padding: 2%, 8%;
+    height: 55px;
+    background-color: #fff;
     justify-content: space-between;
     align-items: center;
+	z-index: 10000;
+	position: fixed;
+	top: 0px;
+	width: 100%
 }
 nav img{
+    margin-left: 1%;
+    margin-top: 5%;
     width: 280px;
+    height: 47px;
+    
 }
 .nav-links{
     flex: 1;
-    text-align: right;
-    background-color: #e0842e;
+    text-align: center;
+    background-color: transparent;
 }
 .nav-links ul li{
     list-style: none;
     display: inline-block;
-    padding: 8px 12px;
+    padding: 10px 12px;
     position: relative;
-    border-radius: 10px;
+	border-radius: 10px;
+    line-height: 20px;
+	margin-top: 12px;
 }
 .nav-links ul li a{
-    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #16163f;
     text-decoration: none;
-    font-size: 13px;
+    font-size: 15px;
+    line-height: 20px;
+   
 }
 .nav-links ul li::after{
     content: '';
     width: 0%;
-    height: 2px;
+    height: 3px;
     background: rgb(0, 75, 140);
     display: block;
     margin: auto;
@@ -103,18 +116,57 @@ nav img{
 .nav-links ul li:hover::after{
     width:100%;
 }
-.nav-links ul li .ex-1::after{
-    content: '';
-    width: 0%;
-    height: 2px;
-    background: rgb(0, 75, 140);
-    display: block;
-    margin: auto;
-    transition: 0.5s;
-    width:100%;
+
+* The dropdown container */
+.dropdown {
+  float: left;
+  overflow: hidden;
 }
 
-/*--------------nav-menu-end------------*/
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: #16163f;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family:  Arial, Helvetica, sans-serif; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
 .text-box{
     width: 90%;
     color: #fff;
@@ -198,9 +250,9 @@ nav .fa{
 
 .slideshow-container { 
     position: relative; /* "relative", so that h1 and images can be set absolutely */
-	height: 80vh; /* Adjust the height to your needs here */
+	height: 80%; /* Adjust the height to your needs here */
 	width: 100%; /* Adjust the width to your needs here */
-	margin-top:1%;
+	margin-top: 8%;
 	overflow: hidden;
 	border-radius: .125rem;
 	box-shadow: 0 0 .1rem .125rem rgba(0, 0, 0, 0.25);
@@ -223,6 +275,12 @@ nav .fa{
 	text-transform: uppercase;
 	color: rgba(0,0,0,.5);
 }
+@media(max-width: 700px){
+    .slideshow-container{
+        margin-top: 70px;
+        object-fit: contain;
+    }
+}
 	/* Responsive styles for the heading */
 	/* ===== == = === 30em (480px) === = == ===== */
 	@media only screen and (min-width : 30em) {
@@ -234,9 +292,6 @@ nav .fa{
 	}
 
 /* Hide the images by default */
-.mySlides {
-  display: flex;
-}
 
 /* Next & previous buttons */
 .prev, .next {
@@ -276,6 +331,14 @@ nav .fa{
   width: 100%;
   text-align: left;
   text-shadow: 1px 1px 0px #474545;
+}
+@media(max-width: 700px){
+    .tohide{
+        display: none;
+    }
+    .ries{
+    	font-size: 20px;
+    }    
 }
 .btns {
 	margin: left;
@@ -317,8 +380,8 @@ nav .fa{
     box-shadow: 0 0 1px 1px #ffffff;
 }
 
-.slider--image {
-	position: absolute;
+.mySlides {
+	position: initial;
 	z-index: 1;
 	left:0;
 	top:0;
@@ -328,77 +391,76 @@ nav .fa{
 	animation: 45s ease-in-out infinite;
 } 
  /* Name of animations and selection of images */
-.slider--image:nth-of-type(1) {
-	animation-name: slide-01;
+ .mySlides:nth-of-type(1) {
+	animation-name: Slider1;
 }
-.slider--image:nth-of-type(2) {
-	animation-name: slide-02;
+.mySlides:nth-of-type(2) {
+	animation-name: Slider2;
 }
-.slider--image:nth-of-type(3) {
-	animation-name: slide-03;
+.mySlides:nth-of-type(3) {
+	animation-name: Slider3;
 }
 
 /* Images are overlaid and visible or invisible due to different transparency */
 /* Moving the images with transform: scale & translate */
 	/* Styles for webkit browsers */
-@-webkit-keyframes slide-01 {
-	0%  { opacity:1; -webkit-transform: scale(1.4) translate(0, 0);}
-	16%  {opacity:1; -webkit-transform: scale(1.2) translate(-20px, -10px);}
-	33%  {opacity:0; -webkit-transform: scale(1.4) translate(0, 0);}
-	50%  {opacity:0;}
-	67%  {opacity:0;}
-	84%  {opacity:0;}
+@keyframes Slider1 {
+	0%  { opacity:1; -webkit-transform: scale(1.4s) translate(0, 0);}
+	16%  {opacity:1; -webkit-transform: scale(1.2s) translate(-20px, -20px);}
+	33%  {opacity:1; -webkit-transform: scale(1.4s) translate(0, 0);}
+	50%  {opacity:1;-webkit-transform: scale(1.4s) translate(0, 0);}
+	67%  {opacity:1;-webkit-transform: scale(1.2s) translate(-20px, -10px);} 
+	84%  {opacity:1; -webkit-transform: scale(1.4s) translate(0, 0);}
 	100%  {opacity:1; -webkit-transform: scale(1.4) translate(0, 0);}
 }
-@-webkit-keyframes slide-02 {
-	0%  { opacity:0;}
-	16%  {opacity:0; -webkit-transform: scale(1.2) translate(-20px, -10px);}
-	33%  {opacity:1; -webkit-transform: scale(1.4) translate(0, 0);}
-	50%  {opacity:1; -webkit-transform: scale(1.2) translate(-20px, 10px);}
-	67%  {opacity:0; -webkit-transform: scale(1.4) translate(0, 0);}
-	84%  {opacity:0;}
-	100%  {opacity:0;}
+@keyframes Slider2 {
+	0%  { opacity:1; -webkit-transform: scale(1.4s) translate(0, 0);}
+	16%  {opacity:1; -webkit-transform: scale(1.2s) translate(-20px, -10px);}
+	33%  {opacity:1; -webkit-transform: scale(1.4s) translate(0, 0);}
+	50%  {opacity:1;-webkit-transform: scale(1.4s) translate(0, 0);}
+	67%  {opacity:1;-webkit-transform: scale(1.2s) translate(-20px, -10px);} 
+	84%  {opacity:1; -webkit-transform: scale(1.4s) translate(0, 0);}
+	100%  {opacity:1; -webkit-transform: scale(1.4) translate(0, 0);}
 }
-@-webkit-keyframes slide-03 {
-	0%  { opacity:0;}
-	16%  {opacity:0;}
-	33%  {opacity:0;}
-	50%  {opacity:0; -webkit-transform: scale(1.4) translate(0, 0);}
-	67%  {opacity:1; -webkit-transform: scale(1.4) translate(-20px, 10px);}
-	84%  {opacity:1; -webkit-transform: scale(1.2) translate(20px, -10px);}
-	100%  {opacity:0; -webkit-transform: scale(1.4) translate(0, 0);}
+@keyframes Slider3 {
+	0%  { opacity:1; -webkit-transform: scale(1.4s) translate(0, 0);}
+	16%  {opacity:1; -webkit-transform: scale(1.2s) translate(-20px, -10px);}
+	33%  {opacity:1; -webkit-transform: scale(1.4s) translate(0, 0);}
+	50%  {opacity:1;-webkit-transform: scale(1.4s) translate(0, 0);}
+	67%  {opacity:1;-webkit-transform: scale(1.2s) translate(-20px, -10px);} 
+	84%  {opacity:1; -webkit-transform: scale(1.4s) translate(0, 0);}
+	100%  {opacity:1; -webkit-transform: scale(1.4) translate(0, 0);}
 }
 
 	/* Styles for all other browsers */
-@keyframes slide-01 {
-	0%  { opacity:1; transform: scale(1.4) translate(0, 0);}
-	16%  {opacity:1; transform: scale(1.2) translate(-20px, -10px);}
-	33%  {opacity:0; transform: scale(1.4) translate(0, 0);}
-	50%  {opacity:0;}
-	67%  {opacity:0;}
-	84%  {opacity:0;}
-	100%  {opacity:1; transform: scale(1.4) translate(0, 0);}
+@keyframes Slider1 {
+	0%  { opacity:1; -webkit-transform: scale(1.4s) translate(0, 0);}
+	16%  {opacity:1; -webkit-transform: scale(1.2s) translate(-20px, -10px);}
+	33%  {opacity:1; -webkit-transform: scale(1.4s) translate(0, 0);}
+	50%  {opacity:1;-webkit-transform: scale(1.4s) translate(0, 0);}
+	67%  {opacity:1;-webkit-transform: scale(1.2s) translate(-20px, -10px);} 
+	84%  {opacity:1; -webkit-transform: scale(1.4s) translate(0, 0);}
+	100%  {opacity:1; -webkit-transform: scale(1.4) translate(0, 0);}
 }
-@keyframes slide-02 {
-	0%  { opacity:0;}
-	16%  {opacity:0; transform: scale(1.2) translate(-20px, -10px);}
-	33%  {opacity:1; transform: scale(1.4) translate(0, 0);}
-	50%  {opacity:1; transform: scale(1.2) translate(-20px, 10px);}
-	67%  {opacity:0; transform: scale(1.4) translate(0, 0);}
-	84%  {opacity:0;}
-	100%  {opacity:0;}
+@keyframes Slider2 {
+	0%  { opacity:1; -webkit-transform: scale(1.4s) translate(0, 0);}
+	16%  {opacity:1; -webkit-transform: scale(1.2s) translate(-20px, -10px);}
+	33%  {opacity:1; -webkit-transform: scale(1.4s) translate(0, 0);}
+	50%  {opacity:1;-webkit-transform: scale(1.4s) translate(0, 0);}
+	67%  {opacity:1;-webkit-transform: scale(1.2s) translate(-20px, -10px);} 
+	84%  {opacity:1; -webkit-transform: scale(1.4s) translate(0, 0);}
+	100%  {opacity:1; -webkit-transform: scale(1.4) translate(0, 0);}
 }
-@keyframes slide-03 {
-	0%  { opacity:0;}
-	16%  {opacity:0;}
-	33%  {opacity:0;}
-	50%  {opacity:0; transform: scale(1.4) translate(0, 0);}
-	67%  {opacity:1; transform: scale(1.4) translate(-20px, 10px);}
-	84%  {opacity:1; transform: scale(1.2) translate(20px, -10px);}
-	100%  {opacity:0; transform: scale(1.4) translate(0, 0);}
+@keyframes Slider3 {
+	0%  { opacity:1; -webkit-transform: scale(1.4s) translate(0, 0);}
+	16%  {opacity:1; -webkit-transform: scale(1.2s) translate(-20px, -10px);}
+	33%  {opacity:1; -webkit-transform: scale(1.4s) translate(0, 0);}
+	50%  {opacity:1;-webkit-transform: scale(1.4s) translate(0, 0);}
+	67%  {opacity:1;-webkit-transform: scale(1.2s) translate(-20px, -10px);} 
+	84%  {opacity:1; -webkit-transform: scale(1.4s) translate(0, 0);}
+	100%  {opacity:1; -webkit-transform: scale(1.4) translate(0, 0);}
 }
 
-/* The dots/bullets/indicators */
 .dot {
   cursor: pointer;
   height: 15px;
@@ -417,13 +479,14 @@ nav .fa{
 /* Fading animation */
 .fade {
   animation-name:fade;
-  animation-duration: 2.5s;
+  animation-duration: 15.5s;
 }
 
 @keyframes fade {
-  from {opacity: .6}
-  to {opacity: 1}
-}
+    from {opacity: .6}
+    to {opacity: 1}
+  }
+
 
 /*------service-add-----*/
 .about{
@@ -461,7 +524,7 @@ nav .fa{
 	font-size: 18px;
 	margin-bottom: 45px;
 }
-button{
+.about a{
 	background-color:#1b4bc5;
 	color: white;
 	text-decoration: none;
@@ -471,7 +534,7 @@ button{
 	border-radius: 30px;
 	transition: .4s; 
 }
-button:hover{
+.about a:hover{
 	background-color: transparent;
 	border: 2px solid #1b4bc5;
 	cursor: pointer;
